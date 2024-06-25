@@ -26,8 +26,8 @@ test('Completing a task in TodoList calls completeTodo', () => {
 
 test('Deleting a task in TodoList calls removeTodo', () => {
   const removeTodoMock = jest.fn();
-  const { getByText } = render(<TodoList todos={sampleTodos} removeTodo={removeTodoMock} />);
-  const deleteButton = getByText('Delete');
+  const { getByTestId } = render(<TodoList todos={sampleTodos} removeTodo={removeTodoMock} />);
+  const deleteButton = getByTestId('delete-button-1');
   fireEvent.click(deleteButton);
 
   expect(removeTodoMock).toHaveBeenCalledWith(1); // Assuming Task 2 is index 1 in the sampleTodos array
